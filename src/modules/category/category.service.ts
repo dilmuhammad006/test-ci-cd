@@ -6,6 +6,7 @@ import {
 import { InjectModel } from '@nestjs/sequelize';
 import { Category } from './models';
 import { CreateCategoryDto, UpdateCategoryDto } from './dtos';
+import { Menyu } from '../menyu';
 
 @Injectable()
 export class CategoryService {
@@ -14,7 +15,10 @@ export class CategoryService {
   ) {}
 
   async getAll() {
-    const categories = await this.categoryModel.findAll({ raw: true });
+    const categories = await this.categoryModel.findAll({
+      include: [Menyu],
+      raw: true,
+    });
 
     return await categories;
   }

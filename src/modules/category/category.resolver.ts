@@ -18,17 +18,17 @@ export class CategroyResolver {
   }
 
   @Mutation(() => Category)
-  async create(@Args('CreateCategoryDto') payload: CreateCategoryDto) {
+  async createCategory(@Args('CreateCategoryDto') payload: CreateCategoryDto) {
     return await this.service.create(payload);
   }
 
   @Mutation(() => Category)
-  async update(@Args('UpdateCategoryDto') payload: UpdateCategoryDto) {
+  async updateCategory(@Args('UpdateCategoryDto') payload: UpdateCategoryDto) {
     return await this.service.update(payload);
   }
 
   @Query(() => Category)
-  async delete(@Args('id', { type: () => Int }) id: number) {
+  async deleteCategory(@Args('id', { type: () => Int }) id: number) {
     return await this.service.delete(id);
   }
 }

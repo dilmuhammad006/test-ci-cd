@@ -7,4 +7,7 @@ export class CreateMenyuDto {
 
   @Field({})
   price: number;
+
+  @Field({})
+  categordId: number;
 }

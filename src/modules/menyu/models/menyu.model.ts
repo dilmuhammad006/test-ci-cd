@@ -1,5 +1,13 @@
 import { Field, Int, ObjectType } from '@nestjs/graphql';
-import { Column, Model, Table } from 'sequelize-typescript';
+import {
+  BelongsTo,
+  Column,
+  DataType,
+  ForeignKey,
+  Model,
+  Table,
+} from 'sequelize-typescript';
+import { Category } from 'src/modules/category';
 
 @ObjectType()
 @Table({ tableName: 'menyu', timestamps: true })
@@ -21,4 +29,12 @@ export class Menyu extends Model {
 
   @Field({})
   declare updatedAt: string;
+
+  @Field(() => Int)
+  @ForeignKey(() => Category)
+  @Column({ type: DataType.INTEGER })
+  categordId: number;
+
+  @BelongsTo(() => Category)
+  catergory: Category;
 }

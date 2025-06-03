@@ -30,6 +30,7 @@ export class MenyuService {
     const menyu = await this.menyuModel.create({
       name: payload.name,
       price: payload.price,
+      categordId: payload.categordId,
     });
 
     return menyu.dataValues;

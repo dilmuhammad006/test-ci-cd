@@ -18,17 +18,17 @@ export class MenyuResolver {
   }
 
   @Mutation(() => Menyu)
-  async create(@Args('CreateMenyuDto') payload: CreateMenyuDto) {
+  async createMenyu(@Args('CreateMenyuDto') payload: CreateMenyuDto) {
     return await this.service.create(payload);
   }
 
   @Query(() => Menyu)
-  async delete(@Args('id', { type: () => Int }) id: number) {
+  async deleteMenyu(@Args('id', { type: () => Int }) id: number) {
     return await this.service.delete(id);
   }
 
   @Mutation(() => Menyu)
-  async update(@Args('UpdateMenyuDto') payload: UpdateMenyuDto) {
+  async updateMenyu(@Args('UpdateMenyuDto') payload: UpdateMenyuDto) {
     return await this.service.update(payload);
   }
 }

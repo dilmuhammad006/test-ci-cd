@@ -2,32 +2,49 @@
 # THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
 # ------------------------------------------------------
 
-type Category {
-  name: String!
-  description: String!
-  createdAt: String!
-  updatedAt: String!
-}
-
 type Menyu {
   id: Int!
   name: String!
   price: Int!
   createdAt: String!
   updatedAt: String!
+  categordId: Int!
+}
+
+type Category {
+  name: String!
+  description: String!
+  createdAt: String!
+  updatedAt: String!
+  food: [Menyu!]
 }
 
 type Query {
   menus: [Menyu!]!
   menu(id: Int!): Menyu!
-  delete(id: Int!): Category!
+  deleteMenyu(id: Int!): Menyu!
   categories: [Category!]!
   category(id: Int!): Category!
+  deleteCategory(id: Int!): Category!
 }
 
 type Mutation {
-  create(CreateCategoryDto: CreateCategoryDto!): Category!
-  update(UpdateCategoryDto: UpdateCategoryDto!): Category!
+  createMenyu(CreateMenyuDto: CreateMenyuDto!): Menyu!
+  updateMenyu(UpdateMenyuDto: UpdateMenyuDto!): Menyu!
+  createCategory(CreateCategoryDto: CreateCategoryDto!): Category!
+  updateCategory(UpdateCategoryDto: UpdateCategoryDto!): Category!
+}
+
+input CreateMenyuDto {
+  name: String!
+  price: Float!
+  categordId: Float!
+}
+
+input UpdateMenyuDto {
+  name: String!
+  price: Float!
+  id: Float!
 }
 
 input CreateCategoryDto {
